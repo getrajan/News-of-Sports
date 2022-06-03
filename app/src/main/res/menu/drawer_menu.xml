@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:id="@+id/top_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/navNews"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/ic_news"
+            android:title="@string/news" />
+        <item
+            android:id="@+id/navTeams"
+            android:checkable="true"
+            android:icon="@drawable/ic_people"
+            android:title="@string/teams" />
+        <item
+            android:id="@+id/navMatches"
+            android:checkable="true"
+            android:icon="@drawable/ic_football"
+            android:title="@string/matches" />
+    </group>
+
+
+</menu>

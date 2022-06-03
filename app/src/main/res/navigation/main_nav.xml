@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/navNews">
+
+    <fragment
+        android:id="@+id/navNews"
+        android:name="com.NewsofSports.ui.fragment.NewsFragment"
+        android:label="News"
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/action_navNews_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navMatches"
+        android:name="com.NewsofSports.ui.fragment.MatchesFragment"
+        android:label="Matches"
+        tools:layout="@layout/fragment_matches" />
+    <fragment
+        android:id="@+id/navTeams"
+        android:name="com.NewsofSports.ui.fragment.TeamsFragment"
+        android:label="Teams"
+        tools:layout="@layout/fragment_teams" />
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.NewsofSports.ui.fragment.NewsDetailFragment"
+        android:label="News"
+        tools:layout="@layout/fragment_news_detail">
+        <argument
+            android:name="news"
+            app:argType="com.NewsofSports.data.model.news.News" />
+    </fragment>
+</navigation>
