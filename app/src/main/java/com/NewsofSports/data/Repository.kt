@@ -16,4 +16,8 @@ class Repository(private val apiHelper: ApiHelper) : SafeApiCall {
     suspend fun getPreMatches() = safeApiCall {
         apiHelper.getPreMatches()
     }
+
+    suspend fun getTeamMatches(team: String) = safeApiCall {
+        apiHelper.getTeamMatches(team)
+    }
 }

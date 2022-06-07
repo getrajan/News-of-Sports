@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.NewsofSports.R
@@ -17,7 +18,8 @@ class TeamsAdapter(private val onItemClickListener: OnItemClickListener, val con
     private var teamList = emptyList<Home>()
 
     class TeamsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val teamName: TextView = view.findViewById(R.id.teamNameTV)
+        private val teamName: TextView = view.findViewById(R.id.teamNameTV)
+        val llTeam: LinearLayout = view.findViewById(R.id.llTeam)
         fun bind(match: Home, context: Context) {
             teamName.text = match.name
         }
@@ -34,13 +36,17 @@ class TeamsAdapter(private val onItemClickListener: OnItemClickListener, val con
         val item = teamList[position]
 
         holder.bind(item, context)
+
+        holder.llTeam.setOnClickListener {
+            onItemClickListener.onItemClick(item)
+        }
     }
 
     override fun getItemCount(): Int {
         return teamList.size
     }
 
-    fun addNewsList(teams: List<Home>) {
+    fun addTeamList(teams: List<Home>) {
         teamList = teams
         notifyDataSetChanged()
     }

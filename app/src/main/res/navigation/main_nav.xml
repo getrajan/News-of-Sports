@@ -23,7 +23,11 @@
         android:id="@+id/navTeams"
         android:name="com.NewsofSports.ui.fragment.TeamsFragment"
         android:label="Teams"
-        tools:layout="@layout/fragment_teams" />
+        tools:layout="@layout/fragment_teams">
+        <action
+            android:id="@+id/action_navTeams_to_teamFragment"
+            app:destination="@id/teamFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.NewsofSports.ui.fragment.NewsDetailFragment"
@@ -32,5 +36,14 @@
         <argument
             android:name="news"
             app:argType="com.NewsofSports.data.model.news.News" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="com.NewsofSports.ui.fragment.TeamFragment"
+        android:label="Team"
+        tools:layout="@layout/fragment_team">
+        <argument
+            android:name="team"
+            app:argType="com.NewsofSports.data.model.match.Home" />
     </fragment>
 </navigation>

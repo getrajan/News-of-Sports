@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.NewsofSports.R
@@ -102,14 +103,13 @@ class TeamsFragment : Fragment() {
                         teamsRV.layoutManager = LinearLayoutManager(requireContext())
                         val teamsAdapter = TeamsAdapter(object : OnItemClickListener {
                             override fun onItemClick(units: Any) {
-//                                val action =
-//                                    NewsFragmentDirections.actionNavNewsToNewsDetailFragment(news = units as News)
-//                                findNavController().navigate(action)
-
+                                val action =
+                                    TeamsFragmentDirections.actionNavTeamsToTeamFragment(team = units as Home)
+                                findNavController().navigate(action)
                             }
                         }, requireContext())
                         teamsRV.adapter = teamsAdapter
-                        teamsAdapter.addNewsList(teams = it.data as List<Home>)
+                        teamsAdapter.addTeamList(teams = it.data as List<Home>)
                     }
                 }
 
